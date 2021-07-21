@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HigherJump : MonoBehaviour
+public class SpeedUp : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerMovement.instance.EnableHigherJump(true);
+        Player.instance.EnableSpeedUp(true);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        PlayerMovement.instance.EnableHigherJump(false);
+        Player.instance.EnableSpeedUp(false);
     }
 }

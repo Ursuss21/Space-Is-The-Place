@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
 
@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     float rememberGroundedFor;
     float lastTimeGrounded;
 
-    public static PlayerMovement instance { get; set; }
+    int lives = 3;
+
+    public static Player instance { get; set; }
 
     private void Awake()
     {
@@ -134,6 +136,20 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             speed /= speedMultiplier;
+        }
+    }
+
+    public void OnDamageReceived()
+    {
+        if(lives > 0)
+        {
+            --lives;
+            this.transform.position = CheckpointSystem.instance.GetLastCheckpointPosition();
+            Debug.Log("Ouch!");
+        }
+        else
+        {
+            Debug.Log("Game over!");
         }
     }
 }

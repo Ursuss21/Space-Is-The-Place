@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LowerJump : MonoBehaviour
+public class HigherJump : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerMovement.instance.EnableLowerJump(true);
+        Player.instance.EnableHigherJump(true);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        PlayerMovement.instance.EnableLowerJump(false);
+        Player.instance.EnableHigherJump(false);
     }
 }
