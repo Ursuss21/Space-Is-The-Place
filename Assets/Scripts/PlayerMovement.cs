@@ -21,17 +21,33 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float lowJumpMultiplier = 2f;
 
+    float higherJumpMultiplier = 1.5f;
+    float lowerJumpMultiplier = 0.5f;
+    float speedMultiplier = 1.5f;
+
     [SerializeField]
     float rememberGroundedFor;
     float lastTimeGrounded;
 
-    // Start is called before the first frame update
+    public static PlayerMovement instance { get; set; }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -82,6 +98,42 @@ public class PlayerMovement : MonoBehaviour
                 lastTimeGrounded = Time.time;
             }
             isGrounded = false;
+        }
+    }
+
+    public void EnableHigherJump(bool enabled)
+    {
+        if (enabled)
+        {
+            jumpForce *= higherJumpMultiplier;
+        }
+        else
+        {
+            jumpForce /= higherJumpMultiplier;
+        }
+    }
+
+    public void EnableLowerJump(bool enabled)
+    {
+        if (enabled)
+        {
+            jumpForce *= lowerJumpMultiplier;
+        }
+        else
+        {
+            jumpForce /= lowerJumpMultiplier;
+        }
+    }
+
+    public void EnableSpeedUp(bool enabled)
+    {
+        if (enabled)
+        {
+            speed *= speedMultiplier;
+        }
+        else
+        {
+            speed /= speedMultiplier;
         }
     }
 }
