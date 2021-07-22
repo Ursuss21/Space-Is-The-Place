@@ -141,16 +141,16 @@ public class Player : MonoBehaviour
 
     public void OnDamageReceived()
     {
-        if(lives > 0)
+        Health.instance.DecrementHealth();
+        if (lives > 1)
         {
             --lives;
             this.transform.position = CheckpointSystem.instance.GetLastCheckpointPosition();
-            Health.instance.DecrementHealth();
-            Debug.Log("Ouch!");
         }
         else
         {
-            Debug.Log("Game over!");
+            Destroy(this.gameObject);
+            EndScreen.instance.EnableEndScreen();
         }
     }
 

@@ -35,6 +35,6 @@ public class Health : MonoBehaviour
 
     public void DecrementHealth()
     {
-        Destroy(health[Player.instance.GetLives()].gameObject);
+        Destroy(health[Player.instance.GetLives() - 1].gameObject);
     }
 }
