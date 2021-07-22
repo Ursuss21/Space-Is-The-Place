@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static MainMenu instance { get; set; }
 
     [SerializeField]
     private GameObject loadingScreen = null;
     [SerializeField] 
     private Slider slider = null;
+
+    public static MainMenu instance { get; set; }
 
     private void Awake()
     {
