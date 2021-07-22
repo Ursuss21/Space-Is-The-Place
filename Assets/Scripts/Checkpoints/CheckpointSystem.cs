@@ -28,7 +28,6 @@ public class CheckpointSystem : MonoBehaviour
     public void UpdateLastCheckpointPosition(Vector2 newPos)
     {
         lastCheckpointPosition = newPos;
-        Debug.Log(lastCheckpointPosition);
     }
 
     public Vector2 GetLastCheckpointPosition()

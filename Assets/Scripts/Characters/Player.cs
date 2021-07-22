@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     float rememberGroundedFor;
     float lastTimeGrounded;
 
+    Vector2 forceFieldVector;
+    bool forceFieldIsActive = false;
+
     int lives = 3;
 
     public static Player instance { get; set; }
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        forceFieldVector = new Vector2(0.0f, 0.0f);
     }
 
     void Update()
@@ -63,6 +67,9 @@ public class Player : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * speed;
         rb.velocity = new Vector2(moveBy, rb.velocity.y);
+
+        HandleForceField();
+        UpdateSpriteFacingDirection(x);
     }
     
     void Jump()
@@ -103,6 +110,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    void HandleForceField()
+    {
+        if (forceFieldIsActive)
+        {
+            rb.velocity += forceFieldVector * speed;
+        }
+    }
+
+    void UpdateSpriteFacingDirection(float direction)
+    {
+        if(direction < 0)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if(direction > 0)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+        }
+    }
+
     public void EnableHigherJump(bool enabled)
     {
         if (enabled)
@@ -137,6 +164,12 @@ public class Player : MonoBehaviour
         {
             speed /= speedMultiplier;
         }
+    }
+
+    public void ChangeForceFieldDirection(Vector2 newVector, bool isActive)
+    {
+        forceFieldVector = newVector;
+        forceFieldIsActive = isActive;
     }
 
     public void OnDamageReceived()
