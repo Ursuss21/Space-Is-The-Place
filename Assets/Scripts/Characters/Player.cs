@@ -145,11 +145,17 @@ public class Player : MonoBehaviour
         {
             --lives;
             this.transform.position = CheckpointSystem.instance.GetLastCheckpointPosition();
+            Health.instance.DecrementHealth();
             Debug.Log("Ouch!");
         }
         else
         {
             Debug.Log("Game over!");
         }
+    }
+
+    public int GetLives()
+    {
+        return lives;
     }
 }
