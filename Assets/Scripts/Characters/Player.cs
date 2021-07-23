@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveBy, rb.velocity.y);
 
         HandleForceField();
+        UpdateAnimation(Mathf.Abs(x));
         UpdateSpriteFacingDirection(x);
     }
     
@@ -116,6 +117,11 @@ public class Player : MonoBehaviour
         {
             rb.velocity += forceFieldVector * speed;
         }
+    }
+
+    void UpdateAnimation(float x)
+    {
+        GetComponent<Animator>().SetFloat("isMoving", x);
     }
 
     void UpdateSpriteFacingDirection(float direction)

@@ -55,7 +55,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Sdsedse");
         if (collision.gameObject.tag == "Player")
         {
             collision.collider.transform.SetParent(transform);
