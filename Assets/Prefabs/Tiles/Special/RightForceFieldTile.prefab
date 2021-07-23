@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5924739828814560988}
   - component: {fileID: 5924739828814560931}
   - component: {fileID: 2975606089795153788}
-  - component: {fileID: 7562950954366398267}
+  - component: {fileID: 123498421636590790}
   m_Layer: 8
-  m_Name: WaterTile
+  m_Name: RightForceFieldTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5924739828814560930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -8.5, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &5924739828814560931
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1597373951
-  m_SortingLayer: 3
+  m_SortingLayerID: 1750303609
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b65f373c7e6baf04d88d73f169f040fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 200625f4ac3010a489fe34cbaeb0efb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14949894}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,9 +109,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7010021}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7562950954366398267
+--- !u!114 &123498421636590790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5924739828814560930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfce5c7c7d7457248ade50ed28504a92, type: 3}
+  m_Script: {fileID: 11500000, guid: df3321c07cd0946408ab2c06bf666b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldDirection: 1
