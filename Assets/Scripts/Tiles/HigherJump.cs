@@ -6,11 +6,17 @@ public class HigherJump : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player.instance.EnableHigherJump(true);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableHigherJump(true);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Player.instance.EnableHigherJump(false);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableHigherJump(false);
+        }
     }
 }

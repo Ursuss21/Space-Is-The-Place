@@ -6,11 +6,17 @@ public class LowerJump : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player.instance.EnableLowerJump(true);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableLowerJump(true);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Player.instance.EnableLowerJump(false);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableLowerJump(false);
+        }
     }
 }

@@ -6,11 +6,17 @@ public class SpeedUp : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player.instance.EnableSpeedUp(true);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableSpeedUp(true);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Player.instance.EnableSpeedUp(false);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.EnableSpeedUp(false);
+        }
     }
 }

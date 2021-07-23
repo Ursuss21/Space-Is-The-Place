@@ -6,6 +6,9 @@ public class Spikes : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player.instance.OnDamageReceived();
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.OnDamageReceived();
+        }
     }
 }
