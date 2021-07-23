@@ -188,8 +188,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
             EndScreen.instance.EnableEndScreen();
+            this.enabled = false;
         }
     }
 

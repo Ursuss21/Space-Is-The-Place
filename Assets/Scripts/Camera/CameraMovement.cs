@@ -9,6 +9,9 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.position = new Vector3(playerPosition.position.x, gameObject.transform.position.y, -10);
+        if(playerPosition.position.x >= 0 && playerPosition.position.x <= 45)
+        {
+            gameObject.transform.position = new Vector3(playerPosition.position.x, gameObject.transform.position.y, -10);
+        }
     }
 }
