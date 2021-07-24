@@ -186,13 +186,13 @@ public class Player : MonoBehaviour
         if (lives > 1)
         {
             --lives;
-            this.transform.position = CheckpointSystem.instance.GetLastCheckpointPosition();
         }
         else
         {
             EndScreen.instance.EnableEndScreen();
             this.enabled = false;
         }
+        this.transform.position = CheckpointSystem.instance.GetLastCheckpointPosition();
     }
 
     public int GetLives()
