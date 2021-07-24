@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     bool forceFieldIsActive = false;
 
     int lives = 3;
+    int onions = 0;
 
     public static Player instance { get; set; }
 
@@ -180,7 +181,7 @@ public class Player : MonoBehaviour
 
     public void OnDamageReceived()
     {
-        Health.instance.DecrementHealth();
+        HealthHUD.instance.DecrementHealth();
         if (lives > 1)
         {
             --lives;
@@ -196,5 +197,25 @@ public class Player : MonoBehaviour
     public int GetLives()
     {
         return lives;
+    }
+
+    public void OnCollectedHealth()
+    {
+        if(lives < 3)
+        {
+            ++lives;
+            HealthHUD.instance.IncrementHealth();
+        }
+    }
+
+    public void OnCollectedOnion()
+    {
+        ++onions;
+        OnionHUD.instance.IncreaseOnions();
+    }
+    
+    public int GetOnions()
+    {
+        return onions;
     }
 }

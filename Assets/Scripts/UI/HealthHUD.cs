@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthHUD : MonoBehaviour
 {
     [SerializeField]
     GameObject healthPrefab;
 
     List<GameObject> health;
 
-    public static Health instance { get; set; }
+    public static HealthHUD instance { get; set; }
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         health = new List<GameObject>();
         for(int i = 0; i < Player.instance.GetLives(); ++i)
         {
-            health.Add(Instantiate(healthPrefab, new Vector2(i * 110.0f, 0.0f), Quaternion.identity));
+            health.Add(Instantiate(healthPrefab, new Vector2((i * 110.0f) + 10.0f, -10.0f), Quaternion.identity));
             health[i].transform.SetParent(gameObject.transform, false);
         }
     }
@@ -36,5 +36,12 @@ public class Health : MonoBehaviour
     public void DecrementHealth()
     {
         Destroy(health[Player.instance.GetLives() - 1].gameObject);
+        health.RemoveAt(health.Count - 1);
+    }
+    
+    public void IncrementHealth()
+    {
+        health.Add(Instantiate(healthPrefab, new Vector2((health.Count * 110.0f) + 10.0f, -10.0f), Quaternion.identity));
+        health[health.Count - 1].transform.SetParent(gameObject.transform, false);
     }
 }
