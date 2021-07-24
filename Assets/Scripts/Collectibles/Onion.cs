@@ -6,7 +6,10 @@ public class Onion : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player.instance.OnCollectedOnion();
-        Destroy(this.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player.instance.OnCollectedOnion();
+            Destroy(this.gameObject);
+        }
     }
 }

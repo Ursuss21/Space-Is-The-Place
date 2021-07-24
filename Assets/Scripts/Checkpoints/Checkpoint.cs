@@ -6,7 +6,10 @@ public class Checkpoint : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckpointSystem.instance.UpdateLastCheckpointPosition(this.transform.position);
-        Destroy(this.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            CheckpointSystem.instance.UpdateLastCheckpointPosition(this.transform.position);
+            Destroy(this.gameObject);
+        }
     }
 }

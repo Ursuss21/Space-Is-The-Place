@@ -34,9 +34,4 @@ public class CheckpointSystem : MonoBehaviour
     {
         return lastCheckpointPosition;
     }
-
-    public void EnableEndScreen()
-    {
-
-    }
 }
