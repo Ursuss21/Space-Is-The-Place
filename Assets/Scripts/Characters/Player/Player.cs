@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
     void UpdateAnimation(float x)
     {
         GetComponent<Animator>().SetFloat("isMoving", x);
+        GetComponent<Animator>().SetBool("isJumping", Input.GetKey(KeyCode.Space));
     }
 
     void UpdateSpriteFacingDirection(float direction)
