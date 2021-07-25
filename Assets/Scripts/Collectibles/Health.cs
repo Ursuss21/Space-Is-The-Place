@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Sounds.instance.PlayCollectSound();
             Player.instance.OnCollectedHealth();
             Destroy(this.gameObject);
         }

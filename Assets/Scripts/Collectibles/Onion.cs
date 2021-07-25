@@ -8,6 +8,7 @@ public class Onion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Sounds.instance.PlayCollectSound();
             Player.instance.OnCollectedOnion();
             Destroy(this.gameObject);
         }

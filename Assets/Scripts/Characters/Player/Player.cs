@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
         {
+            Sounds.instance.PlayJumpSound();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
@@ -183,6 +184,7 @@ public class Player : MonoBehaviour
     public void OnDamageReceived()
     {
         HealthHUD.instance.DecrementHealth();
+        Sounds.instance.PlayDeathSound();
         if (lives > 1)
         {
             --lives;

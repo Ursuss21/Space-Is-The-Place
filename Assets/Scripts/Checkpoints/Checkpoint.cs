@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Sounds.instance.PlayCheckpointSound();
             CheckpointSystem.instance.UpdateLastCheckpointPosition(this.transform.position);
             Destroy(this.gameObject);
         }
